@@ -1,0 +1,4 @@
+#+TITLE: index
+#+AUTHOR: xfwduke
+
+* [[file:erlang/index.org][Erlang 文档]]

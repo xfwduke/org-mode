@@ -1,0 +1,43 @@
+#+TITLE: 远程连接docker erlang节点
+#+AUTHOR: xfwduke
+
+
+以如下方式启动 docker erlang 节点
+
+#+BEGIN_SRC shell :exports code
+docker run -it --rm --network host -v "$PWD":/usr/src/myapp -w /usr/src/myapp erlang erl  -name erlang  -setcookie abc
+
+#+END_SRC
+
+在宿主机上启动另外一个erlang节点测试
+
+
+#+BEGIN_SRC shell :exports both
+erl -noshell -name zsh -setcookie abc -eval "io:format(net_adm:ping('erlang@`hostname`'))" -eval "init:stop()"
+
+#+END_SRC
+
+#+RESULTS:
+: pong
+
+
+关键点是
+
+1. 以 ~--network host~ 方式运行容器
+2. 节点都必须用 ~-name~ 指定节点名
+3. 节点都指定相同都 cookie
+4. 机器名要合法，比如
+#+BEGIN_SRC shell :exports results
+hostname
+
+#+END_SRC
+
+#+RESULTS:
+: surface.xfwduke.com
+
+
+
+
+
+
+
