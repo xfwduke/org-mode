@@ -1,2 +1,9 @@
-定义锚点 #<<my-anchor>>
-[[my-anchor][内部链接]]
+定义锚点 <<my-anchor>>
+
+fasdf
+
+asdfsadf
+
+fasdfsf
+
+[[#my-anchor][内部链接]]
