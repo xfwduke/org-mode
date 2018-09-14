@@ -15,7 +15,7 @@
 2. 所有节点上不稳定存在的
 3. ~leader~ 节点上不稳定存在的
 
-与选举有关的是 [[c1m][第1类]] 属性中的 ~currentTerm~ 和 ~votedFor~
+与选举有关的是 [[#c1m][第1类]] 属性中的 ~currentTerm~ 和 ~votedFor~
 
 所以节点结构可以定义为
 #+BEGIN_SRC go
