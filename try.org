@@ -1,4 +1,4 @@
-定义锚点 #<<my-anchor>>
+定义锚点 #+NAME: My Target
 
 fasdf
 
@@ -6,4 +6,4 @@ asdfsadf
 
 fasdfsf
 
-[[#my-anchor][内部链接]]
+[[#My Target][内部链接]]
