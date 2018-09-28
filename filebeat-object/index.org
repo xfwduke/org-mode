@@ -1,0 +1,30 @@
+#+TITLE: index
+#+AUTHOR: xfwduke
+
+* ~filebeat~ 部署
+1. 只分发 ~filebeat~ 程序包和 ~manager~
+2. 分发后立即启动 ~manager~ 并添加 ~manager~ 的监控 ~crontab~
+3. 配置文件由 ~manager~ 读取 ~etcd~ 生成
+4. 配置拆分为 ~filebeat.conf~ 和外部配置
+  1. ~filebeat.conf~ 定义 ~filebeat~ 进程的行为
+  2. 外部配置定义各 ~MySQL~ 实例日志的采集方式
+5. ~manager~ 负责启动并监控 ~filebeat~ 进程
+
+* ~etcd~ 读写
+** ~key-value~
+1. ~key~ : ~/ip/port~
+2. ~value~ 为一个 ~json~
+#+BEGIN_SRC json
+{
+    app: "",        # 业务英文名
+    inst_type: "",  # [spider, remote, tmysql]
+    role: "",       # [master, slave]
+}
+#+END_SRC
+
+** 写
+实现一个 ~etcd_writer~ 监听 ~gcs~ 资源表
+1. 新增实例时生成 ~k-v~
+2. 下架实例时删除 ~k-v~
+3. 实例状态改变时 (如: 切换, 业务转移) 修改 ~k-v~
+
