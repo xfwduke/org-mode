@@ -18,7 +18,7 @@ int main() {
 
 因为失误写出了这样的代码，等反应过来才发现有 /Bug/ 
 
-由于 ~size-t~ 实际是 ~unsigned int~ 类型所以 ~a-1 >= 0~ 恒为真，所以用 ~a-1~ 作为下标访问 ~ivec~ 是非法的。
+由于 ~size_t~ 实际是 ~unsigned int~ 类型所以 ~a - 1 >= 0~ 恒为真，所以用 ~a - 1~ 作为下标访问 ~ivec~ 是非法的。
 
 但神奇的是这程序不会 /CORE/ 。
 
@@ -111,7 +111,7 @@ End of assembler dump.
    0x000055555555478c <+44>:	mov    %rax,%rdi
    0x000055555555478f <+47>:	callq  0x55555555480e <std::vector<int, std::allocator<int> >::operator[](unsigned long)>
   #+END_SRC
-  *. ~%rsi~ 是 ~a-1~ 后的非法下标
+  *. ~%rsi~ 是 ~a - 1~ 后的非法下标
   *. ~%rdi~ 是 ~ivec~ 对象的地址
   *. ~%rax~ 作为返回值
 
