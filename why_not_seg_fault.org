@@ -111,9 +111,9 @@ End of assembler dump.
    0x000055555555478c <+44>:	mov    %rax,%rdi
    0x000055555555478f <+47>:	callq  0x55555555480e <std::vector<int, std::allocator<int> >::operator[](unsigned long)>
   #+END_SRC
-  *. ~%rsi~ 是 ~a - 1~ 后的非法下标
-  *. ~%rdi~ 是 ~ivec~ 对象的地址
-  *. ~%rax~ 作为返回值
+  - ~%rsi~ 是 ~a - 1~ 后的非法下标
+  - ~%rdi~ 是 ~ivec~ 对象的地址
+  - ~%rax~ 作为返回值
 
   在 ~不正常的~ 的版本中，程序就这样结束了
 
